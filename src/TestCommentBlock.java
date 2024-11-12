@@ -37,22 +37,25 @@ public class TestCommentBlock {
 		int length = s.length();
 
 		for (int i = 0; i < length; i++) {
+
 			if (inComment) {
-				// Prüfen, ob das Ende des Blockkommentars erreicht wurde
+
 				if (i + 1 < length && s.charAt(i) == '*' && s.charAt(i + 1) == '/') {
 					inComment = false;
-					i++; // Das Ende des Kommentars überspringen
+					i++;
 				}
+
 			} else {
-				// Prüfen, ob der Beginn eines Blockkommentars erreicht wurde
+
 				if (i + 1 < length && s.charAt(i) == '/' && s.charAt(i + 1) == '*') {
 					inComment = true;
-					i++; // Den Anfang des Kommentars überspringen
+					i++;
 				} else {
-					// Kein Kommentar, Zeichen in die Ausgabe schreiben
 					result.append(s.charAt(i));
 				}
+
 			}
+
 		}
 
 		return result.toString();
