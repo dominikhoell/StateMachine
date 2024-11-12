@@ -43,6 +43,7 @@ public class TestCommentBlock {
 				if (i + 1 < length && s.charAt(i) == '*' && s.charAt(i + 1) == '/') {
 					inComment = false;
 					i++;
+					result.append(' ');
 				}
 
 			} else {
@@ -50,14 +51,15 @@ public class TestCommentBlock {
 				if (i + 1 < length && s.charAt(i) == '/' && s.charAt(i + 1) == '*') {
 					inComment = true;
 					i++;
+					result.append(' ');
 				} else {
+
 					result.append(s.charAt(i));
 				}
 
 			}
 
 		}
-
 		return result.toString();
 	}
 
